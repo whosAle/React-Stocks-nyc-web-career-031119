@@ -49,13 +49,17 @@ class MainContainer extends Component {
     const ownedStocks = this.state.stocks.filter(stock => stock.owned);
 
     let availableStocks = this.state.stocks.filter(stock => !stock.owned);
-    switch (this.state.sort) {
-      case "Alphabetically":
-        this.sortStocks(availableStocks, "ticker");
-        break;
-      case "Price":
-        this.sortStocks(availableStocks, "price");
-        break;
+    // switch (this.state.sort) {
+    //   case "Alphabetically":
+    //     this.sortStocks(availableStocks, "ticker");
+    //     break;
+    //   case "Price":
+    //     this.sortStocks(availableStocks, "price");
+    //     break;
+    // }
+
+    if (this.state.sort) {
+      this.sortStocks(availableStocks, this.state.sort);
     }
 
     if (this.state.filter) {
